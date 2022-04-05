@@ -30,8 +30,9 @@ public class AdminFilter implements Filter {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpServletResponse httpResponse = (HttpServletResponse) response;
         HttpSession session = httpRequest.getSession();
-        int roleId = (int) session.getAttribute("role");
 
+        //get role value, if role is admin, redirect to admin servlet and page
+        int roleId = (int) session.getAttribute("role");
         if (roleId == 1) {
             chain.doFilter(request, response);
         } else {
